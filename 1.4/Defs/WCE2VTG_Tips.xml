@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TipSetDef>
+    <defName>GameplayTips</defName>
+    <tips>
+      <!-- WCE2VTG -->
+      <li TKey="TortureMasochists">Masochists love being tortured.</li>
+	  <li TKey="Torture">Much of the inhabitants of rim worlds dislike torturing or being tortured, and dislike those who do.</li>
+	  <li TKey="PracticeSurgery">Practicing surgery on prisoners - or masochists - is a great way to raise your pawn's medical skills.</li>
+	  <li TKey="Lobotomy">Lobotomies have a very high risk of failure and death, but if successful, you will create very useful slave pawns.</li>
+	  <li TKey="TraumaSavantwce">Trying to deliberately turn someone into a trauma savant carries a high risk of failure and brain damage. Just keep trying!</li>
+	  <li TKey="HackingLimbs">Don't forget to bandage someone after hacking off their limb or they will bleed to death.</li>
+	  <li TKey="Vivisection">Performing vivisection is even better than practicing surgery if you want to train your doctors, but it leaves the "patient" in a near-death state. It's best to sew them back up if you don't want to lose your test dummy.</li>
+    </tips>
+  </TipSetDef>
+  
+</Defs>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>War Crimes Expanded 2 - VTG Edits</name>
+  <author>Virstag</author>
+  <supportedVersions>
+    <li>1.4</li>
+  </supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>OskarPotocki.VanillaFactionsExpanded.Core</packageId>
+			<displayName>Vanilla Expanded Framework</displayName>
+			<downloadUrl>https://github.com/Vanilla-Expanded/VanillaExpandedFramework</downloadUrl>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2023507013</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>Crustypeanut.WCE2.Core</packageId>
+			<displayName>War Crimes Expanded 2 Core</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2059450213</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+  <loadAfter> 
+    <li>Ludeon.RimWorld</li>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+    <li>VanillaExpanded.VMemesE</li> 
+	<li>Sarg.AlphaMemes</li> 
+	<li>VanillaExpanded.VFEA</li> 
+	<li>VanillaExpanded.VFEA</li>
+	<li>OskarPotocki.VFE.Pirates</li>
+	<li>Vesper.Honorbound</li>
+	<li>Crustypeanut.WCE2.Core</li>
+  </loadAfter>
+  <packageId>Virstag.WCE2VTG</packageId>
+  <description>A collection of fixes, changes and improvements to War Crimes Expanded 2 Core mod, which I originally made for my own use.</description>
+
+</ModMetaData>

@@ -1,0 +1,1258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<!-- Have fun checking the code, I left some comments but it can be a bit hard to follow. If in doubt, leave me a comment/post on the Workshop. And remember - Virstag believes that torturing people is wrong. -->
+
+
+<!-- Neutralize the original WCE2 patches for memes (left Supremacist) -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/MemeDef[defName = "FleshPurity"]/requireOne</xpath>
+					<value><requireOne><li><li>DrugUse_Prohibited</li></li><li><li>BodyMod_Abhorrent</li></li></requireOne></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/MemeDef[defName = "Raider"]/requireOne</xpath>
+					<value><requireOne><li><li>Raiding_Respected</li><li>Raiding_Required</li></li><li><li>Execution_HorribleIfInnocent</li><li>Execution_DontCare</li><li>Execution_RespectedIfGuilty</li><li>Execution_Required</li></li></requireOne></value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+		
+<!-- Main patch -->	
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>War Crimes Expanded 2 Core</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+			
+			
+				<!-- HediffDef - fixes and edits -->	
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_Lethargic"]/labelNoun</xpath>
+					<value><labelNoun>a lethargy</labelNoun></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_SearingPain"]/labelNoun</xpath>
+					<value><labelNoun>a searing pain</labelNoun></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_BlindingRage"]/description</xpath>
+					<value><description>A mindless, shock-induced rage where only basic survival and aggression instincts happen - caused by a malfunctioning aggression amplifier.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_PanicAttack"]/description</xpath>
+					<value><description>A sudden panic attack caused by EMP hitting a panic inducer.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_MemoryLoss"]/description</xpath>
+					<value><description>A sudden memory loss caused by EMP hitting a memory expulsor.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_BrainShock"]/description</xpath>
+					<value><description>Aftermath of electric shock to the brain. This particular case is amplified due to an EMP relay implant. Repeated exposure may fry the brain.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_EMPKillswitchOn"]/description</xpath>
+					<value><description>Rapid electrical frying of the brain caused by EMP hit to someone with an EMP killswitch implant.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_NeutroamineIncubator"]/description</xpath>
+					<value><description>This torturous excrescence implanted in the chest cavity will periodically sprout harvestable neutroamine sacs that can grow on the limbs or torso. This growth process greatly increases hunger and causes chemical damage to the organs, with death occurring after roughly one year. EMP hit causes cancer.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_NeutroamineGrowth"]/description</xpath>
+					<value><description>A fleshy sac filled with neutroamine induced by a neutroamine incubator. Extremely painful and debilitating.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_GrowthStimulator"]/description</xpath>
+					<value><description>This torturous implant causes excessive, meaty growths throughout the body. This improves a pawn's meat yield, but the growths can also be harvested earlier. Death occurs after about half a year. Not a very good source of food as it greatly increases the pawn's hunger, but useful for colonists with... certain tastes.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_MeatyGrowth"]/description</xpath>
+					<value><description>A lump of meat induced by a growth stimulator. It will grow bigger over time.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_SuturedMouth"]/description</xpath>
+					<value><description>This person's mouth is sutured shut almost completely. They cannot speak and are barely able to eat.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_SuturedEye"]/description</xpath>
+					<value><description>This person's eye has been sutured shut, making it unable to see.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_SteelSpikes"]/description</xpath>
+					<value><description>Steel spikes were driven into this person's body. Very painful, but can also be used as a weapon.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_HeartIrregulator"]/description</xpath>
+					<value><description>This torturous implant generates periodic heart palpitations that cause chest pains every few days. This will eventually lead to a heart attack. It can also be triggered by EMP.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_SleepDeprivator"]/description</xpath>
+					<value><description>This torturous implant makes it almost impossible to fall asleep and maintains a constant, exhausting state of insomnia. EMP hit causes immediate lethargy.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_PainAmplifier"]/description</xpath>
+					<value><description>This torturous implant increases a pawn's pain shock threshold as well as amplifying the amount of pain they feel. Masochists love it, but everyone else hates it. EMP hit causes instant agonizing pain in every nerve.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_AggressionAmplifier"]/description</xpath>
+					<value><description>This torturous implant induces greatly heightened aggression, encouraging social fights, but also greatly improving a pawn's melee combat skills. It also generates near-constant tantrums and occasional bouts of murderous or sadistic rage. It will eventually cause a pawn to go berserk until they are subdued. This can also be triggered by EMP.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_PanicInducer"]/description</xpath>
+					<value><description>This torturous implant weakens mental toughness and causes periodic sad or psychotic wanderings. Eventually, it can cause a pawn to give up and leave the settlement - that is, if they are not forced to stay one way or another. EMP hit guarantees a psychotic break.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_StomachClamp"]/description</xpath>
+					<value><description>This torturous implant causes periodic contractions and stirs the contents of the stomach, causing regular vomiting. Additionally, despite the constant stomach upset, it also induces increased hunger. EMP hit causes instant vomiting.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_HealingInhibitor"]/description</xpath>
+					<value><description>This torturous implant does not directly cause any pain or damage, but it greatly reduces the body's efficiency in healing its injuries and illnesses, also reducing its toxic resistance.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_CoagulantSuppressor"]/description</xpath>
+					<value><description>This torturous implant impedes blood clotting and makes even the smallest cut potentially fatal.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_EmotionDestabilizer"]/description</xpath>
+					<value><description>This torturous implant makes a pawn unable to keep control of their emotions, causing great swings in opinions about others and significantly increasing the chances of social fights. They will also periodically go into uncontrollable insulting sprees.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_MemoryExpulsor"]/description</xpath>
+					<value><description>This torturous implant causes frequent forgetfulness and reduces the ability to learn. Pawn will lose skills faster and periodically wander around confused. EMP hit causes immediate and massive memory loss.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_EMPRelay"]/description</xpath>
+					<value><description>This torturous implant doesn't do anything significant in its standby mode, but when hit by EMP, it activates and instantly puts a pawn into a shock, allowing for easy rescue - or capture. Useful for prisoners and troublesome pawns that need to be constantly subdued. Warning: repeated shocking of the brain may cause brain damage.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_EMPKillswitch"]/label</xpath>
+					<value><label>EMP killswitch</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_EMPKillswitch"]/description</xpath>
+					<value><description>This torturous implant doesn't do anything significant in its standby mode, but when hit by EMP, it activates and fries the pawn's brain like a piece of bacon. This is almost always fatal, but there have been cases of survivors left with permanent and crippling brain damage.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_BadBack"]/description</xpath>
+					<value><description>Severe damage to the spinal column due to blunt force trauma. It makes it difficult to move.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_BashedTeeth"]/labelNoun</xpath>
+					<value><labelNoun>knocked out teeth</labelNoun></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_BashedTeeth"]/description</xpath>
+					<value><description>Teeth knocked out. They make speaking and especially eating difficult.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_CutoutTongue"]/description</xpath>
+					<value><description>A cut tongue that makes it difficult to eat, but even more difficult to speak.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_MangledHand"]/description</xpath>
+					<value><description>A hand that has been broken many times, healed and then broken again. It no longer works as well as a normal hand and causes constant pain.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_MutilatedFace"]/description</xpath>
+					<value><description>A face that has been disfigured by cutting, acid, or some other torture method. It reduces social impact and makes a pawn look rather hideous.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_Branded"]/description</xpath>
+					<value><description>A painful brand on the neck, much like a cattle brand. Often used by slavers to mark their property. Reduces social impact, but increases the pawn's honor value when given to royal tribute collectors.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_Lobotomized"]/description</xpath>
+					<value><description>Part of the brain has been excised, making a pawn a drooling idiot who is only capable of basic functions, such as endlessly operating a deep drill or cutting stone forever.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_Vivisected"]/description</xpath>
+					<value><description>This person was literally cut open while alive, causing excruciating pain.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/HediffDef[defName = "WCE2_InducedComa"]/description</xpath>
+					<value><description>An artificially induced coma, likely caused in response of medical or mental trauma. While a patient can be kept in a coma for a long time, the longer one stays in a coma the worse their general condition will be.</description></value>
+				</li>
+				
+				
+				<!-- RecipeDef - fixes and edits -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallHeartIrregulator"]/description</xpath>
+					<value><description>A heart irregulator generates periodic heart palpitations that cause chest pains every few days. This will eventually lead to a heart attack. It can also be triggered by EMP.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveHeartIrregulator"]/description</xpath>
+					<value><description>Carefully remove a heart irregulator from the patient's heart. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallStomachClamp"]/description</xpath>
+					<value><description>A stomach clamp causes periodic contractions and stirs the contents of the stomach, causing regular vomiting. Additionally, despite the constant stomach upset, it also induces increased hunger. EMP hit causes instant vomiting.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveStomachClamp"]/description</xpath>
+					<value><description>Carefully remove a stomach clamp from the patient's stomach. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallHealingInhibitor"]/description</xpath>
+					<value><description>A healing inhibitor does not directly cause any pain or damage, but it greatly reduces the body's efficiency in healing its injuries and illnesses, also reducing its toxic resistance.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveHealingInhibitor"]/label</xpath>
+					<value><label>remove healing inhibitor</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveHealingInhibitor"]/description</xpath>
+					<value><description>Carefully remove a healing inhibitor from the patient's liver. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallCoagulantSuppressor"]/description</xpath>
+					<value><description>A coagulant suppressor impedes blood clotting and makes even the smallest cut potentially fatal.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveCoagulantSuppressor"]/description</xpath>
+					<value><description>Carefully remove a coagulant suppressor from the patient's heart. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveCoagulantSuppressor"]/jobString</xpath>
+					<value><jobString>Removing coagulant suppressor.</jobString></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveCoagulantSuppressor"]/successfullyRemovedHediffMessage</xpath>
+					<value><successfullyRemovedHediffMessage>{0} has successfully removed {1}'s coagulant suppressor.</successfullyRemovedHediffMessage></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallSleepDeprivator"]/description</xpath>
+					<value><description>A sleep deprivator makes it almost impossible to fall asleep and maintains a constant, exhausting state of insomnia. EMP hit causes immediate lethargy.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveSleepDeprivator"]/description</xpath>
+					<value><description>Carefully remove a sleep deprivator from the patient's brain. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallPainAmplifier"]/description</xpath>
+					<value><description>A pain amplifier increases a pawn's pain shock threshold as well as amplifying the amount of pain they feel. Masochists love it, but everyone else hates it. EMP hit causes instant agonizing pain in every nerve.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemovePainAmplifier"]/description</xpath>
+					<value><description>Carefully remove a pain amplifier from the patient's brain. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemovePainAmplifier"]/successfullyRemovedHediffMessage</xpath>
+					<value><successfullyRemovedHediffMessage>{0} has successfully removed {1}'s pain amplifier.</successfullyRemovedHediffMessage></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallAggressionAmplifier"]/description</xpath>
+					<value><description>An aggression amplifier induces greatly heightened aggression, encouraging social fights, but also greatly improving a pawn's melee combat skills. It also generates near-constant tantrums and occasional bouts of murderous or sadistic rage. It will eventually cause a pawn to go berserk until they are subdued. This can also be triggered by EMP.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveAggressionAmplifier"]/description</xpath>
+					<value><description>Carefully remove an aggression amplifier from the patient's brain. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallPanicInducer"]/description</xpath>
+					<value><description>A panic inducer weakens mental toughness and causes periodic sad or psychotic wanderings. Eventually, it can cause a pawn to give up and leave the settlement - that is, if they are not forced to stay one way or another. EMP hit guarantees a psychotic break.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemovePanicInducer"]/description</xpath>
+					<value><description>Carefully remove a panic inducer from the patient's brain. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallEmotionDestabilizer"]/description</xpath>
+					<value><description>An emotion destabilizer weakens mental toughness and causes periodic sad or psychotic wanderings. Eventually, it can cause a pawn to give up and leave the settlement - that is, if they are not forced to stay one way or another. EMP hit guarantees a psychotic break.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveEmotionDestabilizer"]/description</xpath>
+					<value><description>Carefully remove an emotion destabilizer from the patient's brain. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallMemoryExpulsor"]/description</xpath>
+					<value><description>A memory expulsor causes frequent forgetfulness and reduces the ability to learn. Pawn will lose skills faster and periodically wander around confused. EMP hit causes immediate and massive memory loss.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveMemoryExpulsor"]/description</xpath>
+					<value><description>Carefully remove a memory expulsor from the patient's brain. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallEMPRelay"]/description</xpath>
+					<value><description>An EMP relay doesn't do anything significant in its standby mode, but when hit by EMP, it activates and instantly puts a pawn into a shock, allowing for easy rescue - or capture. Useful for prisoners and troublesome pawns that need to be constantly subdued. Warning: repeated shocking of the brain may cause brain damage.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveEMPRelay"]/description</xpath>
+					<value><description>Carefully remove an EMP relay from the patient's brain. Turns out that trying to keep them alive while removing this implant is more difficult than putting it in them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallEMPKillswitch"]/description</xpath>
+					<value><description>An EMP killswitch doesn't do anything significant in its standby mode, but when hit by EMP, it activates and fries the pawn's brain like a piece of bacon. This is almost always fatal, but there have been cases of survivors left with permanent and crippling brain damage.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveEMPKillswitch"]/label</xpath>
+					<value><label>remove EMP killswitch</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveEMPKillswitch"]/description</xpath>
+					<value><description>An EMP killswitch doesn't do anything significant in its standby mode, but when hit by EMP, it activates and fries the pawn's brain like a piece of bacon. This is almost always fatal, but there have been cases of survivors left with permanent and crippling brain damage.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveEMPKillswitch"]/jobString</xpath>
+					<value><jobString>Removing EMP killswitch.</jobString></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RemoveEMPKillswitch"]/successfullyRemovedHediffMessage</xpath>
+					<value><successfullyRemovedHediffMessage>{0} has successfully removed {1}'s EMP killswitch.</successfullyRemovedHediffMessage></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallNeutroamineIncubator"]/description</xpath>
+					<value><description>A neutroamine incubator implanted in the chest cavity will periodically sprout harvestable neutroamine sacs that can grow on the limbs or torso. This growth process greatly increases hunger and causes chemical damage to the organs, with death occurring after roughly one year. EMP hit causes cancer.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InstallGrowthStimulator"]/description</xpath>
+					<value><description>A growth stimulator causes excessive, meaty growths throughout the body. This improves a pawn's meat yield, but the growths can also be harvested earlier. Death occurs after about half a year. Not a very good source of food as it greatly increases the pawn's hunger, but useful for colonists with... certain tastes.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_GougeEye"]/description</xpath>
+					<value><description>Painfully gouge out the eye with a sharp object and scrape the remains from the socket.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutHeart"]/description</xpath>
+					<value><description>Open the chest with a sharp object and painfully rip out the heart. It doesn't produce a useful heart. Hey, at least they're pain free afterwards!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutLiver"]/description</xpath>
+					<value><description>Open the abdominal cavity with a sharp object and painfully cut out the liver. It does not produce a useful organ. Hey, at least they're pain free afterwards!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_HackOffLimb"]/description</xpath>
+					<value><description>Cut off an arm or leg with a sharp object. No, it's not the same as amputation. Amputation uses anesthetics and actual surgical instruments. And someone with medical skills.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutNoseOff"]/description</xpath>
+					<value><description>Cut off the victim's nose using something sharp - or at least sharp enough.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutEarOff"]/description</xpath>
+					<value><description>Cut off the victim's ear using a sharp object. I would joke about Vincent van Gogh here, but mental illness is no laughing matter.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutOpen"]/description</xpath>
+					<value><description>Practice surgery! Just randomly cut anywhere. It's a fun and educational activity for everyone! Well, except for the person you're doing it on.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutOpen"]/jobString</xpath>
+					<value><jobString>Practicing surgery.</jobString></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_TraumaSavant"]/description</xpath>
+					<value><description>An easy-to-perform surgery that combines a log and the back of someone's head. Doesn't always cause the specific brain damage required to become a trauma savant. Just keep trying! Creating trauma savants is an art, after all. The beatings will continue until morale improves.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InduceComa"]/label</xpath>
+					<value><label>induce artificial coma</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InduceComa"]/description</xpath>
+					<value><description>Induce an artificial coma, effectively keeping the patient under anesthesia for a long time. They must be tended daily, otherwise catastrophic organ failure can occur. Although safe for moderate periods of time, prolonged coma can lead to brain and other organ degradation.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InduceComa"]/jobString</xpath>
+					<value><jobString>Inducing coma.</jobString></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_WakeFromComa"]/description</xpath>
+					<value><description>Wake a patient from an artificially induced coma. They will need some time to fully awaken.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_WakeFromComa"]/jobString</xpath>
+					<value><jobString>Waking from coma.</jobString></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_WakeFromComa"]/successfullyRemovedHediffMessage</xpath>
+					<value><successfullyRemovedHediffMessage>{0} has successfully woke {1} up from the artificially induced coma.</successfullyRemovedHediffMessage></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_Vivisect"]/description</xpath>
+					<value><description>Practice surgery... with vivisection. A fantastic teaching tool (and a form of torture), vivisection is the act of dissecting a living being in order to observe their insides.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE_RemoveVivisection"]/description</xpath>
+					<value><description>Stitch a vivisected person back up. Hopefully. More difficult than the actual vivisection!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE_RemoveVivisection"]/successfullyRemovedHediffMessage</xpath>
+					<value><successfullyRemovedHediffMessage>{0} has successfully stitched {1} back up after being vivisected.</successfullyRemovedHediffMessage></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_Lobotomize"]/description</xpath>
+					<value><description>Lobotomize the poor victim. This procedure consists of severing parts of the brain from the rest. Originally performed as a way to 'cure' mental disorders, nowadays it's mainly used to make people mostly-mindless (decide which is worse for yourself). Remember, even the smallest mistake results in the death of the victim. No pressure.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_BrandSlave"]/description</xpath>
+					<value><description>Mark the pawn's neck with a red-hot poker, branding them as a slave.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE_RemoveBrand"]/description</xpath>
+					<value><description>Graft someone else's skin on the patient's body to cover up a slave brand.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE_RemoveBrand"]/successfullyRemovedHediffMessage</xpath>
+					<value><successfullyRemovedHediffMessage>{0} has successfully grafted skin on {1} and covered up their slave brand.</successfullyRemovedHediffMessage></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_MangleHand"]/description</xpath>
+					<value><description>A procedure involving breaking the hand several times and causing abnormal fusion of the bones in order to permanently deform it.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_BreakJaw"]/description</xpath>
+					<value><description>Permanently break the victim's jaw.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_BashTeeth"]/label</xpath>
+					<value><label>knock teeth out</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]/description</xpath>
+					<value><description>Use acid to burn the victim's face. Although it is not common knowledge, plants from the healroot family, despite their healing properties, produce highly corrosive juices if not properly prepared. Or properly prepared.</description></value>
+				</li>
+				
+								
+				<!-- RecipeDef - removing the production of human meat and leather during some tortures, as it did not suit me  -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_GougeEye"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutNoseOff"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutEarOff"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_BreakJaw"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_GougeEye"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutHeart"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutLiver"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_HackOffLimb"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				
+				
+				<!-- RecipeDef - replacing thoughts about organ harvesting when certain types of torture are fatal with thoughts about general brutal type execution  -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_SutureMouth"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_InstallImplantWithThoughtVTG</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_SutureEye"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_InstallImplantWithThoughtVTG</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_ImplantSteelSpikes"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_InstallImplantWithThoughtVTG</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_GougeEye"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_RemoveBodyPartVTG_Torture</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutHeart"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_RemoveBodyPartVTG_Torture</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutLiver"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_RemoveBodyPartVTG_Torture</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_HackOffLimb"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_RemoveBodyPartVTG_Torture</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutNoseOff"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_RemoveBodyPartVTG_Torture</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutEarOff"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_RemoveBodyPartVTG_Torture</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_BreakJaw"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_RemoveBodyPartVTG_Torture</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_Vivisect"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_InstallImplantWithThoughtVTG</workerClass></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_Lobotomize"]/workerClass</xpath>
+					<value><workerClass>WarCrimesExpanded2VTG.Recipe_InstallImplantWithThoughtVTG</workerClass></value>
+				</li>
+				
+				
+				<!-- RecipeDef - replacing "smithing" effects during a few torture types with proper spurts of blood. The sounds remain unchanged  -->
+				
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_TraumaSavant"]/effectWorking</xpath>
+				</li>	
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_MangleHand"]/effectWorking</xpath>
+				</li>	
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_InjureSpine"]/effectWorking</xpath>
+				</li>
+				<li Class="PatchOperationRemove">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_BashTeeth"]/effectWorking</xpath>
+				</li>				
+				
+							
+				<!-- RecipeDef - burning someone's face with acid now requires something acid-like  -->
+
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]</xpath>
+					<value><ingredients><li><filter><thingDefs><li>MedicineHerbal</li></thingDefs></filter><count>1</count></li></ingredients></value>
+				</li>
+				
+				
+				<!-- ResearchProjectDef - fixes and edits -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ResearchProjectDef[defName = "WCE2_CrudeTorture"]/description</xpath>
+					<value><description>Crude torture includes generally unskilled mutilation and medieval methods of torture.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ResearchProjectDef[defName = "WCE2_MedicalTorture"]/description</xpath>
+					<value><description>Medical torture involves more advanced methods of torture and unethical practices that generally require some medical skill to perform.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ResearchProjectDef[defName = "WCE2_OrganDestabilization"]/description</xpath>
+					<value><description>Manufacturing and implanting relatively crude cybernetics that destabilize organs, causing long-term pain and suffering.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ResearchProjectDef[defName = "WCE2_QuestionableFoodProduction"]/description</xpath>
+					<value><description>While butchering humanoids for meat has long been a cannibal practice, there are methods that allow for the growing and harvesting of meat from human livestock without killing them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ResearchProjectDef[defName = "WCE2_AdvancedTorture"]/description</xpath>
+					<value><description>Advanced medical torture affecting the victim's brain, including lobotomization and cruel implants.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ResearchProjectDef[defName = "WCE2_NeutroamineIncubation"]/description</xpath>
+					<value><description>Horrific knowledge of how to incubate neutroamine in the human body for continuous cultivation.</description></value>
+				</li>
+				
+				
+				<!-- ResearchTabDef - changed the label -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ResearchTabDef[defName = "WarCrimesExpanded2"]/label</xpath>
+					<value><label>Torture</label></value>
+				</li>
+				
+				
+				<!-- ThingDef - fixes (especially links in the description tab) and edits -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName = "WCE2_OrganModificationKit"]/label</xpath>
+					<value><label>organ destabilization kit</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName = "WCE2_OrganModificationKit"]/description</xpath>
+					<value><description>Specialized tools and parts used to destabilize organs. Not reusable.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName = "WCE2_OrganModificationKit"]/descriptionHyperlinks</xpath>
+					<value><descriptionHyperlinks><HediffDef>WCE2_AggressionAmplifier</HediffDef><HediffDef>WCE2_CoagulantSuppressor</HediffDef><HediffDef>WCE2_EmotionDestabilizer</HediffDef><HediffDef>WCE2_EMPKillswitch</HediffDef><HediffDef>WCE2_EMPRelay</HediffDef><HediffDef>WCE2_HealingInhibitor</HediffDef><HediffDef>WCE2_HeartIrregulator</HediffDef><HediffDef>WCE2_MemoryExpulsor</HediffDef><HediffDef>WCE2_PanicInducer</HediffDef><HediffDef>WCE2_SleepDeprivator</HediffDef><HediffDef>WCE2_StomachClamp</HediffDef></descriptionHyperlinks></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName = "WCE2_NeutroamineIncubator"]/description</xpath>
+					<value><description>Specialized tools, parts and chemicals used to grow a neutroamine incubator in the human body.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName = "WCE2_NeutroamineIncubator"]/descriptionHyperlinks</xpath>
+					<value><descriptionHyperlinks><HediffDef>WCE2_NeutroamineIncubator</HediffDef></descriptionHyperlinks></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName = "WCE2_GrowthStimulator"]/description</xpath>
+					<value><description>Specialized tools and parts used to implant a growth stimulator in the human body.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThingDef[defName = "WCE2_GrowthStimulator"]/descriptionHyperlinks</xpath>
+					<value><descriptionHyperlinks><HediffDef>WCE2_GrowthStimulator</HediffDef></descriptionHyperlinks></value>
+				</li>
+				
+				
+				<!-- ThoughtDef - fixes and edits (contains some modified opinion and mood values) -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_SuturedEye"]/stages/li/description</xpath>
+					<value><description>My eye is sutured shut. It itches, and I can't see! I want to open it, but trying hurts.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "RC22_SuturedMouth"]/stages/li/description</xpath>
+					<value><description>I can't talk and have to eat through a straw. I just want to open my mouth and scream!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_BadBack"]/stages/li/description</xpath>
+					<value><description>They broke my back. It hurts a lot, especially when moving! I just want the pain to go away.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_SteelSpikes"]/stages/li/description</xpath>
+					<value><description>Arrgh! They implanted steel spikes in my body... it fucking hurts! That being said... I could probably stab someone with them.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_BashedTeeth"]/stages/li/description</xpath>
+					<value><description>They ripped my teeth out!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_MangledHand"]/stages/li/description</xpath>
+					<value><description>They broke my hand and intentionally misaligned the bones in it! I can't grip things as well as before and it hurts to try!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_MutilatedFace"]/stages/li/description</xpath>
+					<value><description>My face... I'm so ugly now...</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_SlaveBrand"]/stages/li/description</xpath>
+					<value><description>I have a slave brand on my neck. It's a little itchy and people keep giving me dirty looks.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_HeartIrregulator"]/stages/li/description</xpath>
+					<value><description>Ugh. My heart feels weird, like it's skipping a beat or beating too fast.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_SleepDeprivator"]/stages/li/description</xpath>
+					<value><description>I can't sleep well and get tired quickly. What have they put in me?! I wish I could sleep soundly again, even if only for a few hours...</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_AggressionAmplifier"]/stages/li/description</xpath>
+					<value><description>I'm just so... ANGRY all the time! Ugh, I just want to hit something or hurt someone!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_PanicInducer"]/stages/li/description</xpath>
+					<value><description>They put something in me... I constantly feel like I'm on the verge of a panic attack.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_StomachClamp"]/stages/li/description</xpath>
+					<value><description>Since I had this operation, I feel like I have constant pain in my stomach and I want to puke...</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_HealingInhibitor"]/stages/li/description</xpath>
+					<value><description>I feel all woozy and every time I get even a small cut, it just doesn't seem to want to heal.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_CoagulantSuppressor"]/stages/li/description</xpath>
+					<value><description>It doesn't stop bleeding!!!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_EmotionDestabilizer"]/stages/li/label</xpath>
+					<value><label>so emotional</label></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_EmotionDestabilizer"]/stages/li/description</xpath>
+					<value><description>I'm like, sooooo emotional and I CAN'T FUCKING STOP!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_MemoryExpulsor"]/stages/li/description</xpath>
+					<value><description>Uh... what was I doing again?</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_EMPRelay"]/stages/li/description</xpath>
+					<value><description>They put something in my head and I think I'm picking up... radio static? I wish I could shut this off.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerGuiltyResponsibleClassic"]/stages/li/description</xpath>
+					<value><description>I tortured someone. They were guilty but... it was a wrong thing to do.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerGuiltyClassic"]/stages/li/description</xpath>
+					<value><description>Someone was tortured. They were guilty but... it still feels wrong.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuestClassic"]/stages/li/description</xpath>
+					<value><description>Someone was tortured. We're horrible people.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerGuiltyResponsibleAbhorrent"]/stages/li/description</xpath>
+					<value><description>I tortured someone. Even though they were guilty, this is completely against my beliefs and I feel terrible.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerGuiltyResponsibleAbhorrent"]/stages/li/baseMoodEffect</xpath>
+					<value><baseMoodEffect>-20</baseMoodEffect></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuestResponsibleAbhorrent"]/stages/li/description</xpath>
+					<value><description>I tortured an innocent person. I absolutely hate myself.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuestResponsibleAbhorrent"]/stages/li/baseMoodEffect</xpath>
+					<value><baseMoodEffect>-30</baseMoodEffect></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuest_KnowAbhorrent"]/stages/li/baseOpinionOffset</xpath>
+					<value><baseOpinionOffset>-40</baseOpinionOffset></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerGuiltyAbhorrent"]/stages/li/description</xpath>
+					<value><description>A guilty person was tortured. Now I feel guilty that I didn't prevent it.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerGuiltyAbhorrent"]/stages/li/baseMoodEffect</xpath>
+					<value><baseMoodEffect>-20</baseMoodEffect></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuestAbhorrent"]/stages/li/description</xpath>
+					<value><description>An innocent person was tortured. Why am I even associating with these monsters?!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuestAbhorrent"]/stages/li/baseMoodEffect</xpath>
+					<value><baseMoodEffect>-30</baseMoodEffect></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerGuiltyResponsibleRespected"]/stages/li/description</xpath>
+					<value><description>I tortured someone. They were guilty and they got what they deserved!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerGuiltyRespected"]/stages/li/description</xpath>
+					<value><description>Someone was tortured. They were guilty and they got what they deserved!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuestResponsibleRespected"]/stages/li/description</xpath>
+					<value><description>I tortured someone. That was fun!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuestResponsibleRespected"]/stages/li/baseMoodEffect</xpath>
+					<value><baseMoodEffect>10</baseMoodEffect></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedGuestRespected"]/stages/li/description</xpath>
+					<value><description>Someone was tortured. I enjoyed hearing the screams!</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedPrisonerBloodlust"]/stages/li/description</xpath>
+					<value><description>Hehe... I love inflicting pain!</description></value>
+				</li>
+				
+				
+				<!-- ThoughtDef - making sure that the tortured pawn won't be shocked that "someone was tortured" when that someone is themself (and yes, 'themself' is a word, it's a reflexive form of 'they'). Also removing the 'tortured someone' opinion about the torturer, when the 'tortured me' is present. Had to do all of it with a delay of one second to make it work, so for a while these thoughts are visible and then they disappear. -->
+				
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedMeMood"]</xpath>
+					<value><thoughtToMake>VTG_SomeoneWasTortured_Thought_Cleaner1</thoughtToMake></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedMeMoodMasochist"]</xpath>
+					<value><thoughtToMake>VTG_SomeoneWasTortured_Thought_Cleaner1</thoughtToMake></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedMeMoodWimp"]</xpath>
+					<value><thoughtToMake>VTG_SomeoneWasTortured_Thought_Cleaner1</thoughtToMake></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/ThoughtDef[defName = "WCE2_TorturedMeMoodPainIsVirtue"]</xpath>
+					<value><thoughtToMake>VTG_SomeoneWasTortured_Thought_Cleaner1</thoughtToMake></value>
+				</li>
+				
+				
+				<!-- PreceptDef - one edit (just below) and rewriting the precept/memes relations for Ideology DLC memes -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_HorribleInnocent"]/description</xpath>
+					<value><description>Torturing someone is only right if they're guilty, otherwise it's horrible.</description></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/conflictingMemes</xpath>
+					<value><conflictingMemes><li>Raider</li><li>Supremacist</li></conflictingMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/associatedMemes</xpath>
+					<value><associatedMemes><li>Guilty</li></associatedMemes></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]</xpath>
+					<value><requiredMemes><li>Guilty</li></requiredMemes></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]</xpath>
+					<value><requiredMemes></requiredMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/conflictingMemes</xpath>
+					<value><conflictingMemes><li>Raider</li><li>Supremacist</li></conflictingMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/associatedMemes</xpath>
+					<value><associatedMemes><li>Guilty</li></associatedMemes></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]</xpath>
+					<value><requiredMemes></requiredMemes></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]</xpath>
+					<value><requiredMemes><li>Guilty</li></requiredMemes></value>
+				</li> -->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_HorribleInnocent"]/conflictingMemes</xpath>
+					<value><conflictingMemes></conflictingMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_HorribleInnocent"]/associatedMemes</xpath>
+					<value><associatedMemes><li>Cannibal</li><li>Guilty</li><li>PainIsVirtue</li></associatedMemes></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_HorribleInnocent"]</xpath>
+					<value><requiredMemes><li>Cannibal</li><li>Guilty</li><li>PainIsVirtue</li></requiredMemes></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_HorribleInnocent"]</xpath>
+					<value><requiredMemes></requiredMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/conflictingMemes</xpath>
+					<value><conflictingMemes></conflictingMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/associatedMemes</xpath>
+					<value><associatedMemes><li>Guilty</li><li>Cannibal</li><li>PainIsVirtue</li><li>Raider</li><li>Supremacist</li></associatedMemes></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]</xpath>
+					<value><requiredMemes><li>Guilty</li><li>Cannibal</li><li>PainIsVirtue</li><li>Raider</li><li>Supremacist</li></requiredMemes></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]</xpath>
+					<value><requiredMemes></requiredMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/conflictingMemes</xpath>
+					<value><conflictingMemes><li>Guilty</li></conflictingMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/associatedMemes</xpath>
+					<value><associatedMemes><li>Cannibal</li><li>PainIsVirtue</li><li>Raider</li><li>Supremacist</li></associatedMemes></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]</xpath>
+					<value><requiredMemes><li>Cannibal</li><li>PainIsVirtue</li><li>Raider</li><li>Supremacist</li></requiredMemes></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]</xpath>
+					<value><requiredMemes></requiredMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/conflictingMemes</xpath>
+					<value><conflictingMemes><li>Guilty</li></conflictingMemes></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/associatedMemes</xpath>
+					<value><associatedMemes><li>Cannibal</li><li>PainIsVirtue</li><li>Raider</li><li>Supremacist</li></associatedMemes></value>
+				</li>
+<!-- 				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/requiredMemes</xpath>
+					<value><requiredMemes><li>Cannibal</li><li>PainIsVirtue</li><li>Raider</li><li>Supremacist</li></requiredMemes></value>
+				</li> -->
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/requiredMemes</xpath>
+					<value><requiredMemes></requiredMemes></value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+	
+<!-- This is to ensure that *some* torture precepts will be selected when a weird combination of memes don't force any one of them. Only 'neutral' ones are default ('horrible if innocent' is already included in WCE2 - can't really leave only that one, because there are memes that forbid it. Also, apparently *neutrality* in RimWorld means general indifference to torture, or at least to torturing the guilty people. I don't know what's more fucked up, the game or me).  -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>War Crimes Expanded 2 Core</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]</xpath>
+					<value><defaultSelectionWeight>1</defaultSelectionWeight></value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+	
+<!-- Ideology DLC - added torture precepts to some memes  -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Ideology</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "Cannibal"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_HorribleInnocent</li><li>WCE2_Torture_DontCare</li><li>WCE2_Torture_RespectedGuilty</li><li>WCE2_Torture_AlwaysRespected</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "Guilty"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_Abhorrent</li><li>WCE2_Torture_Horrible</li><li>WCE2_Torture_HorribleInnocent</li><li>WCE2_Torture_DontCare</li></li></value>
+					</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "PainIsVirtue"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_HorribleInnocent</li><li>WCE2_Torture_DontCare</li><li>WCE2_Torture_RespectedGuilty</li><li>WCE2_Torture_AlwaysRespected</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "Raider"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_DontCare</li><li>WCE2_Torture_RespectedGuilty</li><li>WCE2_Torture_AlwaysRespected</li></li></value>
+				</li>
+				<!-- Supremacist - already added in WCE2C -->	
+			</operations>
+		</match>
+	</Operation>
+	
+	
+<!-- VFE: Pirates - added torture precepts and precept/meme relations -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Pirates</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VFEP_PirateMeme"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_DontCare</li><li>WCE2_Torture_RespectedGuilty</li><li>WCE2_Torture_AlwaysRespected</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/conflictingMemes</xpath>
+					<value><li>VFEP_PirateMeme</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/associatedMemes</xpath>
+					<value><li>VFEP_PirateMeme</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/requiredMemes</xpath>
+					<value><li>VFEP_PirateMeme</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/associatedMemes</xpath>
+					<value><li>VFEP_PirateMeme</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/requiredMemes</xpath>
+					<value><li>VFEP_PirateMeme</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/associatedMemes</xpath>
+					<value><li>VFEP_PirateMeme</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/requiredMemes</xpath>
+					<value><li>VFEP_PirateMeme</li></value>
+				</li> -->
+			</operations>
+		</match>
+	</Operation>
+	
+	
+<!-- VFE: Ancients - added torture precepts and precept/meme relations -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Ancients</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VFEA_Isolationist"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_DontCare</li><li>WCE2_Torture_RespectedGuilty</li><li>WCE2_Torture_AlwaysRespected</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/conflictingMemes</xpath>
+					<value><li>VFEA_Isolationist</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/associatedMemes</xpath>
+					<value><li>VFEA_Isolationist</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/requiredMemes</xpath>
+					<value><li>VFEA_Isolationist</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/associatedMemes</xpath>
+					<value><li>VFEA_Isolationist</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/requiredMemes</xpath>
+					<value><li>VFEA_Isolationist</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/associatedMemes</xpath>
+					<value><li>VFEA_Isolationist</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/requiredMemes</xpath>
+					<value><li>VFEA_Isolationist</li></value>
+				</li> -->
+			</operations>
+		</match>
+	</Operation>
+	
+
+<!-- VIE: M&S - added torture precepts and precept/memes relations to some memes -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Ideology Expanded - Memes and Structures</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VME_Healthcare"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_Abhorrent</li><li>WCE2_Torture_Horrible</li><li>WCE2_Torture_HorribleInnocent</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VME_Nationalist"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_DontCare</li><li>WCE2_Torture_RespectedGuilty</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VME_Emancipation"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_Abhorrent</li><li>WCE2_Torture_Horrible</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VME_BloodCourt"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_DontCare</li><li>WCE2_Torture_RespectedGuilty</li><li>WCE2_Torture_AlwaysRespected</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VME_Pacifist"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_Abhorrent</li><li>WCE2_Torture_Horrible</li><li>WCE2_Torture_HorribleInnocent</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VME_Egalitarian"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_Abhorrent</li><li>WCE2_Torture_Horrible</li><li>WCE2_Torture_HorribleInnocent</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "VME_ViolentConversion"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_DontCare</li><li>WCE2_Torture_RespectedGuilty</li><li>WCE2_Torture_AlwaysRespected</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/conflictingMemes</xpath>
+					<value><li>VME_ViolentConversion</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/associatedMemes</xpath>
+					<value><li>VME_Healthcare</li><li>VME_Emancipation</li><li>VME_Pacifist</li><li>VME_Egalitarian</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/requiredMemes</xpath>
+					<value><li>VME_Healthcare</li><li>VME_Emancipation</li><li>VME_Pacifist</li><li>VME_Egalitarian</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/conflictingMemes</xpath>
+					<value><li>VME_ViolentConversion</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/associatedMemes</xpath>
+					<value><li>VME_Healthcare</li><li>VME_Emancipation</li><li>VME_Pacifist</li><li>VME_Egalitarian</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/requiredMemes</xpath>
+					<value><li>VME_Healthcare</li><li>VME_Emancipation</li><li>VME_Pacifist</li><li>VME_Egalitarian</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_HorribleInnocent"]/associatedMemes</xpath>
+					<value><li>VME_Healthcare</li><li>VME_Pacifist</li><li>VME_Egalitarian</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_HorribleInnocent"]/requiredMemes</xpath>
+					<value><li>VME_Healthcare</li><li>VME_Pacifist</li><li>VME_Egalitarian</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/conflictingMemes</xpath>
+					<value><li>VME_Pacifist</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/associatedMemes</xpath>
+					<value><li>VME_Nationalist</li><li>VME_BloodCourt</li><li>VME_ViolentConversion</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/requiredMemes</xpath>
+					<value><li>VME_Nationalist</li><li>VME_BloodCourt</li><li>VME_ViolentConversion</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/conflictingMemes</xpath>
+					<value><li>VME_Healthcare</li><li>VME_Emancipation</li><li>VME_Pacifist</li><li>VME_Egalitarian</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/associatedMemes</xpath>
+					<value><li>VME_Nationalist</li><li>VME_BloodCourt</li><li>VME_ViolentConversion</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/requiredMemes</xpath>
+					<value><li>VME_Nationalist</li><li>VME_BloodCourt</li><li>VME_ViolentConversion</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/conflictingMemes</xpath>
+					<value><li>VME_Healthcare</li><li>VME_Emancipation</li><li>VME_Pacifist</li><li>VME_Egalitarian</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/associatedMemes</xpath>
+					<value><li>VME_BloodCourt</li><li>VME_ViolentConversion</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/requiredMemes</xpath>
+					<value><li>VME_BloodCourt</li><li>VME_ViolentConversion</li></value>
+				</li> -->
+			</operations>
+		</match>
+	</Operation>
+	
+	
+<!-- Alpha Memes - added torture precepts and precept/memes relations to some memes -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Alpha Memes</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "AM_Sadist"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_AlwaysRespected</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "AM_NonViolence"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_Abhorrent</li><li>WCE2_Torture_Horrible</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/conflictingMemes</xpath>
+					<value><li>AM_Sadist</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/associatedMemes</xpath>
+					<value><li>AM_NonViolence</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/requiredMemes</xpath>
+					<value><li>AM_NonViolence</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/conflictingMemes</xpath>
+					<value><li>AM_Sadist</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/associatedMemes</xpath>
+					<value><li>AM_NonViolence</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/requiredMemes</xpath>
+					<value><li>AM_NonViolence</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_HorribleInnocent"]/conflictingMemes</xpath>
+					<value><li>AM_Sadist</li><li>AM_NonViolence</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/conflictingMemes</xpath>
+					<value><li>AM_NonViolence</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/conflictingMemes</xpath>
+					<value><li>AM_NonViolence</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/conflictingMemes</xpath>
+					<value><li>AM_NonViolence</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/associatedMemes</xpath>
+					<value><li>AM_Sadist</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/requiredMemes</xpath>
+					<value><li>AM_Sadist</li></value>
+				</li> -->
+			</operations>
+		</match>
+	</Operation>
+	
+	
+<!-- Honorbound - added torture precepts and precept/meme relations -->
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Honorbound</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+		<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/MemeDef[defName = "Honorbound_Honorbound"]/requireOne</xpath>
+					<value><li><li>WCE2_Torture_Abhorrent</li><li>WCE2_Torture_Horrible</li></li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/associatedMemes</xpath>
+					<value><li>Honorbound_Honorbound</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Abhorrent"]/requiredMemes</xpath>
+					<value><li>Honorbound_Honorbound</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/associatedMemes</xpath>
+					<value><li>Honorbound_Honorbound</li></value>
+				</li>
+<!-- 				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_Horrible"]/requiredMemes</xpath>
+					<value><li>Honorbound_Honorbound</li></value>
+				</li> -->
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_DontCare"]/conflictingMemes</xpath>
+					<value><li>Honorbound_Honorbound</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_RespectedGuilty"]/conflictingMemes</xpath>
+					<value><li>Honorbound_Honorbound</li></value>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/PreceptDef[defName = "WCE2_Torture_AlwaysRespected"]/conflictingMemes</xpath>
+					<value><li>Honorbound_Honorbound</li></value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+	
+
+</Patch>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThoughtDef>
+    <defName>VTG_SomeoneWasTortured_Thought_Cleaner1</defName>
+    <durationDays>0.001</durationDays>
+	<stackLimit>5</stackLimit>
+    <stages>
+      <li>
+        <label>cleaning1</label>
+        <description>This should be invisible.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+    </stages>
+	<nextThought>VTG_SomeoneWasTortured_Thought_Cleaner2</nextThought>
+  </ThoughtDef>
+  
+    <ThoughtDef>
+    <defName>VTG_SomeoneWasTortured_Thought_Cleaner2</defName>
+    <durationDays>0.001</durationDays>
+	<stackLimit>5</stackLimit>
+    <stages>
+      <li>
+        <label>cleaning2</label>
+        <description>This should be invisible.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+      </li>
+    </stages>
+	<modExtensions>
+		<li Class="VFECore.ThoughtExtensions">
+			<removeThoughtsWhenAdded><li>WCE2_TorturedPrisonerGuiltyClassic</li><li>WCE2_TorturedGuestClassic</li><li>WCE2_TorturedPrisonerGuiltyAbhorrent</li><li>WCE2_TorturedGuestAbhorrent</li><li>WCE2_TorturedPrisonerGuiltyRespected</li><li>WCE2_TorturedGuestRespected</li><li>WCE2_TorturedPrisonerGuilty_KnowClassic</li><li>WCE2_TorturedGuest_KnowClassic</li><li>WCE2_TorturedPrisonerGuilty_KnowAbhorrent</li><li>WCE2_TorturedGuest_KnowAbhorrent</li><li>WCE2_TorturedGuest_KnowRespected</li>
+			</removeThoughtsWhenAdded>
+		</li>
+	</modExtensions>
+  </ThoughtDef>
+  
+
+</Defs>
