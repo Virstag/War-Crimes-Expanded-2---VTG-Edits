@@ -422,48 +422,7 @@
 				<li Class="PatchOperationReplace">
 					<xpath>/Defs/RecipeDef[defName = "WCE2_BashTeeth"]/label</xpath>
 					<value><label>knock teeth out</label></value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]/description</xpath>
-					<value><description>Use acid to burn the victim's face. Although it is not common knowledge, plants from the healroot family, despite their healing properties, produce highly corrosive juices if not properly prepared. Or properly prepared.</description></value>
-				</li>
-				
-								
-				<!-- RecipeDef - removing the production of human meat and leather during some tortures, as it did not suit me  -->
-				
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_GougeEye"]/products</xpath>
-					<value><products></products></value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_CutNoseOff"]/products</xpath>
-					<value><products></products></value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_CutEarOff"]/products</xpath>
-					<value><products></products></value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_BreakJaw"]/products</xpath>
-					<value><products></products></value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_GougeEye"]/products</xpath>
-					<value><products></products></value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutHeart"]/products</xpath>
-					<value><products></products></value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutLiver"]/products</xpath>
-					<value><products></products></value>
-				</li>
-				<li Class="PatchOperationReplace">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_HackOffLimb"]/products</xpath>
-					<value><products></products></value>
-				</li>
-				
+				</li>								
 				
 				<!-- RecipeDef - replacing thoughts about organ harvesting when certain types of torture are fatal with thoughts about general brutal type execution  -->
 				
@@ -531,14 +490,6 @@
 				<li Class="PatchOperationRemove">
 					<xpath>/Defs/RecipeDef[defName = "WCE2_BashTeeth"]/effectWorking</xpath>
 				</li>				
-				
-							
-				<!-- RecipeDef - burning someone's face with acid now requires something acid-like  -->
-
-				<li Class="PatchOperationAdd">
-					<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]</xpath>
-					<value><ingredients><li><filter><thingDefs><li>MedicineHerbal</li></thingDefs></filter><count>1</count></li></ingredients></value>
-				</li>
 				
 				
 				<!-- ResearchProjectDef - fixes and edits -->

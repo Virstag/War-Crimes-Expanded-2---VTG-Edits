@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+<Operation Class="XmlExtensions.OptionalPatch">
+    <modId>wce2vtgMod</modId>
+    <key>patch1</key>
+    <defaultValue>true</defaultValue>
+    <caseTrue>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_GougeEye"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutNoseOff"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_CutEarOff"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_BreakJaw"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutHeart"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_RipOutLiver"]/products</xpath>
+					<value><products></products></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/RecipeDef[defName = "WCE2_HackOffLimb"]/products</xpath>
+					<value><products></products></value>
+				</li>
+    </caseTrue>
+</Operation>
+
+<Operation Class="XmlExtensions.UseSetting">
+    <modId>wce2vtgMod</modId>
+    <key>patch2</key>
+    <defaultValue>2</defaultValue>
+    <apply>
+        <Operation Class="XmlExtensions.PatchByCase">
+            <value>{patch2}</value>
+            <cases>
+                <li>
+                    <value>1</value>
+                    <apply>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]/description</xpath>
+							<value><description>Use acid to burn the victim's face.</description></value>
+						</li>
+                    </apply>
+                </li>
+                <li>
+                    <value>2</value>
+                    <apply>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]/description</xpath>
+							<value><description>Use acid to burn the victim's face. Although it is not common knowledge, plants from the healroot family produce highly corrosive juices if not properly prepared. Or perhaps properly prepared.</description></value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]</xpath>
+							<value><ingredients><li><filter><thingDefs><li>MedicineHerbal</li></thingDefs></filter><count>1</count></li></ingredients></value>
+						</li>
+                    </apply>
+                </li>
+                <li>
+                    <value>3</value>
+                    <apply>
+						<li Class="PatchOperationReplace">
+							<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]/description</xpath>
+							<value><description>Use acid to burn the victim's face. Chemfuel is flammable and volatile, but has an amazingly low pH. Its further lowering by relatively simple means gives it exceptionally strong corrosive properties (albeit at the cost of flammability). This is why boomalopes are so sour when you fail to tame them.</description></value>
+						</li>
+						<li Class="PatchOperationAdd">
+							<xpath>/Defs/RecipeDef[defName = "WCE2_MutilateFace"]</xpath>
+							<value><ingredients><li><filter><thingDefs><li>Chemfuel</li></thingDefs></filter><count>1</count></li></ingredients></value>
+						</li>
+                    </apply>
+                </li>
+            </cases>
+        </Operation>
+    </apply>   
+</Operation>
+
+</Patch>

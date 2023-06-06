@@ -17,6 +17,12 @@
 			<displayName>War Crimes Expanded 2 Core</displayName>
 			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2059450213</steamWorkshopUrl>
 		</li>
+		<li>
+			<packageId>imranfish.xmlextensions</packageId>
+			<displayName>XML Extensions</displayName>
+			<downloadUrl>https://github.com/15adhami/XmlExtensions/releases</downloadUrl>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2574315206</steamWorkshopUrl>
+		</li>
 	</modDependencies>
   <loadAfter> 
     <li>Ludeon.RimWorld</li>
@@ -29,6 +35,7 @@
 	<li>OskarPotocki.VFE.Pirates</li>
 	<li>Vesper.Honorbound</li>
 	<li>Crustypeanut.WCE2.Core</li>
+	<li>imranfish.xmlextensions</li>
   </loadAfter>
   <packageId>Virstag.WCE2VTG</packageId>
   <description>A collection of fixes, changes and improvements to War Crimes Expanded 2 Core mod, which I originally made for my own use.</description>

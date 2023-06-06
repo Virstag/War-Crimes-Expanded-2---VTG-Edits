@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+<XmlExtensions.SettingsMenuDef>
+    <defName>WCE2VTG</defName>
+    <modId>wce2vtgMod</modId>
+    <label>War Crimes Extended 2 - VTG</label>
+    <settings>	
+	<li Class="XmlExtensions.Setting.Checkbox">
+		<key>patch1</key>
+		<label>Disable the production of human meat and leather during certain types of torture?</label>
+		<defaultValue>true</defaultValue>
+		<tooltip>These types are: GougeEye, CutNoseOff, CutEarOff, BreakJaw, RipOutHeart, RipOutLiver and HackOffLimb.</tooltip>
+	</li>
+	<li Class="XmlExtensions.Setting.GapLine" />
+	<li Class="XmlExtensions.Setting.Text">
+	    <text>Mutilate face with acid options:</text>
+		<tooltip>Required ingredient added to the recipe (and all of a sudden the nasty torture sounds like baking a cake).</tooltip>
+	</li>
+	<li Class="XmlExtensions.Setting.RadioButtons">
+	    <key>patch2</key>
+	    <defaultValue>2</defaultValue>
+	    <buttons>
+		<li>
+		    <label>Original (nothing)</label>
+			<tooltip>"Use acid to burn the victim's face."</tooltip>
+		    <value>1</value>
+		</li>
+		<li>
+		    <label>Herbal medicine</label>
+			<tooltip>"Use acid to burn the victim's face. Although it is not common knowledge, plants from the healroot family produce highly corrosive juices if not properly prepared. Or perhaps properly prepared."</tooltip>
+		    <value>2</value>
+		</li>
+		<li>
+		    <label>Chemfuel</label>
+			<tooltip>"Use acid to burn the victim's face. Chemfuel is flammable and volatile, but has an amazingly low pH. Its further lowering by relatively simple means gives it exceptionally strong corrosive properties (albeit at the cost of flammability). This is why boomalopes are so sour when you fail to tame them."</tooltip>
+		    <value>3</value>
+		</li>
+	    </buttons>
+	</li>
+	<li Class="XmlExtensions.Setting.GapLine" />
+	<li Class="XmlExtensions.Setting.SetColor">
+	    <color>(230,74,77)</color>
+	</li>
+		<li Class="XmlExtensions.Setting.Text">
+	    <text>Any changes require a restart to take effect</text>
+		<font>Medium</font>
+	    <anchor>Middle</anchor>
+		</li>
+	<li Class="XmlExtensions.Setting.SetColor"/>
+	<li Class="XmlExtensions.Setting.GapLine" />	
+	<li Class="XmlExtensions.Setting.ResetSettings"/>
+    </settings>
+</XmlExtensions.SettingsMenuDef>
+
+</Defs>
