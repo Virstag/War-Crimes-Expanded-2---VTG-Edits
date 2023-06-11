@@ -732,6 +732,38 @@
 				</li>
 				
 				
+				<!-- TipSetDef - tips showing up on loading screens -->
+				
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TipSetDef[defName = "GameplayTips"]/tips/li[@TKey="TortureMasochists"]</xpath>
+					<value><li TKey="TortureMasochists">Masochists love being tortured.</li></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TipSetDef[defName = "GameplayTips"]/tips/li[@TKey="Torture"]</xpath>
+					<value><li TKey="Torture">Much of the inhabitants of rim worlds dislike torturing or being tortured, and dislike those who do.</li></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TipSetDef[defName = "GameplayTips"]/tips/li[@TKey="PracticeSurgery"]</xpath>
+					<value><li TKey="PracticeSurgery">Practicing surgery on prisoners - or masochists - is a great way to raise your pawn's medical skills.</li></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TipSetDef[defName = "GameplayTips"]/tips/li[@TKey="Lobotomy"]</xpath>
+					<value><li TKey="Lobotomy">Lobotomies have a very high risk of failure and death, but if successful, you will create very useful slave pawns.</li></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TipSetDef[defName = "GameplayTips"]/tips/li[@TKey="TraumaSavantwce"]</xpath>
+					<value><li TKey="TraumaSavantwce">Trying to deliberately turn someone into a trauma savant carries a high risk of failure and brain damage. Just keep trying!</li></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TipSetDef[defName = "GameplayTips"]/tips/li[@TKey="HackingLimbs"]</xpath>
+					<value><li TKey="HackingLimbs">Don't forget to bandage someone after hacking off their limb or they will bleed to death.</li></value>
+				</li>
+				<li Class="PatchOperationReplace">
+					<xpath>/Defs/TipSetDef[defName = "GameplayTips"]/tips/li[@TKey="Vivisection"]</xpath>
+					<value><li TKey="Vivisection">Performing vivisection is even better than practicing surgery if you want to train your doctors, but it leaves the "patient" in a near-death state. It's best to sew them back up if you don't want to lose your test dummy.</li></value>
+				</li>
+				
+				
 				<!-- PreceptDef - one edit (just below) and rewriting the precept/memes relations for Ideology DLC memes -->
 				
 				<li Class="PatchOperationReplace">
