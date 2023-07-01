@@ -77,7 +77,7 @@
 				</li>
 				<li Class="PatchOperationReplace">
 					<xpath>/Defs/HediffDef[defName = "WCE2_GrowthStimulator"]/description</xpath>
-					<value><description>This torturous implant causes excessive, meaty growths throughout the body. This improves a pawn's meat yield, but the growths can also be harvested earlier. Death occurs after about half a year. Not a very good source of food as it greatly increases the pawn's hunger, but useful for colonists with... certain tastes.</description></value>
+					<value><description>This torturous implant causes excessive, meaty growths throughout the body. This improves a pawn's meat yield. Death occurs after about half a year. Not a very good source of food as it greatly increases the pawn's hunger, but useful for colonists with... certain tastes.</description></value>
 				</li>
 				<li Class="PatchOperationReplace">
 					<xpath>/Defs/HediffDef[defName = "WCE2_MeatyGrowth"]/description</xpath>
